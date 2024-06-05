@@ -1,31 +1,14 @@
-from rest_framework import generics, viewsets
+from rest_framework import generics, viewsets, status
+from rest_framework.generics import CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate
+from rest_framework.exceptions import PermissionDenied
+
 
 from .models import Word, Language
-from .serializers import WordSerializer, LanguageSerializer
-
-
-class WordsList(generics.ListCreateAPIView):
-    queryset = Word.objects.all()
-    serializer_class = WordSerializer
-    lookup_field = "language_id"
-
-
-class CreateWord(APIView):
-    def post(self, request, language_id):
-        language = get_object_or_404(Language, id=language_id)
-        data = request.data
-        data["language"] = language.id
-        serializer = WordSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
-    serializer_class = WordSerializer
-
+from .serializers import WordSerializer, LanguageSerializer, UserSerializer
 
 
 class LanguageList(generics.ListCreateAPIView):
@@ -36,7 +19,33 @@ class LanguageList(generics.ListCreateAPIView):
 class WordsAPIViewSet(viewsets.ModelViewSet):
     serializer_class = WordSerializer
 
+    def destroy(self, request, *args, **kwargs):
+        word = Word.objects.get(id=kwargs["pk"])
+        if not request.user == word.created_by:
+            raise PermissionDenied("You can not delete this word")
+        return super().destroy(request, *args, **kwargs)
+
     def get_queryset(self):
         # we set language_id earlier
         language_id = self.kwargs["language_id"]
         return Word.objects.filter(language_id=language_id)
+
+
+class UserCreate(generics.CreateAPIView):
+    authentication_classes = ()
+    permission_classes = ()
+    serializer_class = UserSerializer
+
+
+class LoginView(APIView):
+    permission_classes = ()
+
+    def post(self, request):
+        username = request.data.get("username")
+        password = request.data.get("password")
+        print(username, password)
+        user = authenticate(username=username, password=password)
+        if user:
+            return Response({"token": user.auth_token.key})
+        else:
+            return Response({"error": "Wrong Credentials"}, status=status.HTTP_400_BAD_REQUEST)

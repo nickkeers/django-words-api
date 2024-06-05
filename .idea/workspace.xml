@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90eb9e9d-1a32-4ba1-92ef-ebd78ce3ee48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/words_api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words/apiviews.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words_api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words_api/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words_api/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words_api/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/words_api/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/words/apiviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/words/apiviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/words/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/words/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/words/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/words/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/words/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/words/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/words_api/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/words_api/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717586611920</updated>
-      <workItem from="1717586620038" duration="3400000" />
+      <workItem from="1717586620038" duration="4983000" />
     </task>
     <servers />
   </component>
