@@ -26,9 +26,13 @@ class WordsAPIViewSet(viewsets.ModelViewSet):
         return super().destroy(request, *args, **kwargs)
 
     def get_queryset(self):
-        # we set language_id earlier
-        language_id = self.kwargs["language_id"]
-        return Word.objects.filter(language_id=language_id)
+        queryset = Word.objects.all()
+        language_id = self.kwargs.get('language_id', None)
+
+        if language_id is not None:
+            queryset = queryset.filter(language_id=language_id)
+
+        return queryset
 
 
 class UserCreate(generics.CreateAPIView):
