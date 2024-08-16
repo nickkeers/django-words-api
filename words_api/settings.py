@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "words",
     'rest_framework.authtoken',
     'drf_yasg',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
